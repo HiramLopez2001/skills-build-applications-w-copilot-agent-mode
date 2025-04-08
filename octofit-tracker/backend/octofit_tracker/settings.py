@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     'rest_framework',
     'corsheaders',
+    'octofit_tracker',
 ]
 
 MIDDLEWARE = [
@@ -81,12 +82,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'djongo',
         'NAME': 'octofit_db',
-        'CLIENT': {
-            'host': 'mongodb://localhost:27017',
-            'username': '',
-            'password': '',
-            'authSource': 'admin',
-        },
+        'HOST': 'localhost',
+        'PORT': 27017,
     }
 }
 
@@ -134,5 +131,7 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 # Enable CORS
 CORS_ALLOW_ALL_ORIGINS = True
-CORS_ALLOW_METHODS = list(default_methods)
-CORS_ALLOW_HEADERS = list(default_headers)
+CORS_ALLOW_METHODS = [
+    'GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'
+]
+CORS_ALLOW_HEADERS = ['*']

@@ -34,7 +34,7 @@ class ActivitySerializer(serializers.ModelSerializer):
 
 class LeaderboardSerializer(serializers.ModelSerializer):
     _id = ObjectIdField()
-    user = UserSerializer()
+    user = UserSerializer()  # Expand the user object
 
     class Meta:
         model = Leaderboard
